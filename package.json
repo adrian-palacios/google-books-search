@@ -1,0 +1,39 @@
+{
+	"name": "google-search-react-app",
+	"version": "1.0.0",
+	"description": "This is a MERN web application that will allow users to search and save Google Books buy using the Google Books API.",
+	"main": "server.js",
+	"scripts": {
+		"start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+		"start:prod": "npm run seed && node server.js",
+		"start:dev": "npm run seed && concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+		"client": "cd client && npm run start",
+		"seed": "node scripts/seedDB.js",
+		"install": "cd client && npm install",
+		"build": "cd client && npm run build",
+		"heroku-postbuild": "npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/KEDuran/Google-Books-React-Search.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/KEDuran/Google-Books-React-Search/issues"
+	},
+	"homepage": "https://github.com/KEDuran/Google-Books-React-Search#readme",
+	"dependencies": {
+		"axios": "^0.20.0",
+		"concurrently": "^5.3.0",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"if-env": "^1.0.4",
+		"mongoose": "^5.10.5",
+		"mongoose-type-url": "^2.0.0",
+		"morgan": "^1.10.0",
+		"nodemon": "^2.0.4",
+		"path": "^0.12.7"
+	}
+}
